@@ -95,12 +95,6 @@
           </ul>
         </div>
         {% endif %}
-        <div class="user-since">{% trans date_joined=datetimeformat(detail_user.date_joined, format='date') %}Member since {{ date_joined }}{% endtrans %}</div>
-      </div>
-      <div class="column-2 ">
-        <figure>
-          <img src="{{ gravatar_url(detail_user.email, size=200) }}" alt="{{ detail_user.username }}" width="200" height="200" class="user-photo avatar" />
-        </figure>
 
         <ul class="user-links">
         {% if detail_user.twitter_url %}
@@ -134,6 +128,14 @@
         {% endif %}
 
         </ul>
+
+        <div class="user-since">{% trans date_joined=datetimeformat(detail_user.date_joined, format='date') %}Member since {{ date_joined }}{% endtrans %}</div>
+
+      </div>
+      <div class="column-2 ">
+        <figure>
+          <img src="{{ gravatar_url(detail_user.email, size=200) }}" alt="{{ detail_user.username }}" width="200" height="200" class="user-photo avatar" />
+        </figure>
       </div>
     </section>
 
