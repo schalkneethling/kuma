@@ -374,9 +374,24 @@
      */
     function expandCta() {
         var secondaryHeader = popoverBanner[0].querySelector('h4');
-        // Add transitional class for opacity animation.
-        popoverBanner.addClass('expanded is-expanding');
+        var smallDesktop = '(max-width: 1092px)';
+        var mediaQueryList = window.matchMedia(smallDesktop);
+        var initialExpandedClass = mediaQueryList.matches ? 'expanded-extend' : 'expanded';
+
+        popoverBanner.addClass(initialExpandedClass + ' is-expanding');
         popoverBanner.removeClass('is-collapsed');
+
+        /* listen for matchMedia changes and extend, or
+           or contract, the popover height as appropriate */
+        mediaQueryList.addListener(function(evt) {
+            if (evt.matches) {
+                popoverBanner.removeClass('expanded');
+                popoverBanner.addClass('expanded-extend');
+            } else {
+                popoverBanner.removeClass('expanded-extend');
+                popoverBanner.addClass('expanded');
+            }
+        });
 
         popoverBanner.on('transitionend', function() {
             popoverBanner.removeClass('is-expanding');
