@@ -369,29 +369,37 @@
         }
     }
 
+    var mediaQueryList = null;
+
+    /**
+     * Increases or decreases the height of the `popoverBanner`
+     * based on a `mediaQueryList` match
+     */
+    function handleViewportChange(evt) {
+        if (evt.matches) {
+            popoverBanner.removeClass('expanded');
+            popoverBanner.addClass('expanded-extend');
+        } else {
+            popoverBanner.removeClass('expanded-extend');
+            popoverBanner.addClass('expanded');
+        }
+    }
+
     /**
      * Expands the popover to show the full contents.
      */
     function expandCta() {
         var secondaryHeader = popoverBanner[0].querySelector('h4');
         var smallDesktop = '(max-width: 1092px)';
-        var mediaQueryList = window.matchMedia(smallDesktop);
+
+        mediaQueryList = window.matchMedia(smallDesktop);
         var initialExpandedClass = mediaQueryList.matches ? 'expanded-extend' : 'expanded';
 
         popoverBanner.addClass(initialExpandedClass + ' is-expanding');
         popoverBanner.removeClass('is-collapsed');
 
-        /* listen for matchMedia changes and extend, or
-           or contract, the popover height as appropriate */
-        mediaQueryList.addListener(function(evt) {
-            if (evt.matches) {
-                popoverBanner.removeClass('expanded');
-                popoverBanner.addClass('expanded-extend');
-            } else {
-                popoverBanner.removeClass('expanded-extend');
-                popoverBanner.addClass('expanded');
-            }
-        });
+        // listens for, and responds to, matchMedia events
+        mediaQueryList.addListener(handleViewportChange);
 
         popoverBanner.on('transitionend', function() {
             popoverBanner.removeClass('is-expanding');
@@ -424,8 +432,11 @@
 
         // Add transitional class for opacity animation.
         popoverBanner.addClass('is-collapsing');
-        popoverBanner.removeClass('expanded');
+        popoverBanner.removeClass('expanded expanded-extend');
         popoverBanner.attr('aria-expanded', false);
+
+        // remove the mediaQuery listener when in collapsed state
+        mediaQueryList.removeListener(handleViewportChange);
 
         popoverBanner.on('transitionend', function() {
             popoverBanner.addClass('is-collapsed');
