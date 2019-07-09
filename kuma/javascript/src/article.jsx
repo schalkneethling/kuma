@@ -6,13 +6,13 @@ import { css } from '@emotion/core';
 import { activateBCDTables } from './bcd.js';
 import { addLiveExampleButtons } from './live-examples.js';
 import ClockIcon from './icons/clock.svg';
-import ContributorsIcon from './icons/contributors.svg';
 import { gettext } from './l10n.js';
 import { highlightSyntax } from './prism.js';
 import * as InteractiveExamples from './interactive-examples.js';
 import TagsIcon from './icons/tags.svg';
 
-import sectionAnchor from './section-link.jsx';
+import Contributors from './document/contributors.jsx';
+
 import type { DocumentData } from './document.jsx';
 type DocumentProps = {
     document: DocumentData
@@ -60,10 +60,6 @@ const styles = {
         '& div': {
             margin: '4px 0'
         }
-    }),
-    metadataIcon: css({
-        marginRight: 5,
-        verticalAlign: 'middle'
     }),
     tags: css({
         display: 'inline',
@@ -169,24 +165,7 @@ function ArticleMetadata({ document }: DocumentProps) {
                     ))}
                 </ul>
             </div>
-            <div>
-                <ContributorsIcon
-                    css={styles.metadataIcon}
-                    className="icon icon-group"
-                />{' '}
-                <strong>{gettext('Contributors to this page:')}</strong>{' '}
-                {/*
-                 * TODO: once we implement profile pages on the beta site
-                 * these contributor names should turn into links
-                 * <a href={`/${locale}/profiles/${c}`} rel="nofollow">{c}</a>
-                 */
-                document.contributors.map((c, i) => (
-                    <span key={c}>
-                        {i > 0 && ', '}
-                        {c}
-                    </span>
-                ))}
-            </div>
+            <Contributors contributors={document.contributors} />
             <div>
                 <ClockIcon
                     css={styles.metadataIcon}
