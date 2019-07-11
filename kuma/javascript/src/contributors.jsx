@@ -5,12 +5,15 @@ import { gettext } from './l10n.js';
 
 import ContributorsIcon from './icons/contributors.svg';
 
-type Props = {
+type ContributorProps = {
     contributors: Array,
     profileBaseURL: String
 };
 
-export default function Contributors(props: Props) {
+export default function Contributors({
+    contributors,
+    profileBaseURL
+}: ContributorProps) {
     return (
         <section className="contributors-sub">
             <ContributorsIcon />
@@ -18,16 +21,11 @@ export default function Contributors(props: Props) {
                 <h4>{gettext('Contributors to this page:')}</h4>
             </header>
             <ul>
-                {/*
-                 * TODO: These are temporarily pointing to the wiki domain,
-                 * once we implement profile pages in React these contributor
-                 * names should switch to point to the new profiles
-                 */
-                props.contributors.map((contributor, index) => (
+                {contributors.map((contributor, index) => (
                     <li key={contributor}>
                         {index > 0 && ', '}
                         <a
-                            href={`${props.profileBaseURL}${contributor}`}
+                            href={`${profileBaseURL}${contributor}`}
                             rel="nofollow"
                         >
                             {contributor}

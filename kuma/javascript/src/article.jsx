@@ -5,13 +5,14 @@ import { css } from '@emotion/core';
 
 import { activateBCDTables } from './bcd.js';
 import { addLiveExampleButtons } from './live-examples.js';
-import ClockIcon from './icons/clock.svg';
 import { gettext } from './l10n.js';
 import { highlightSyntax } from './prism.js';
 import * as InteractiveExamples from './interactive-examples.js';
 import TagsIcon from './icons/tags.svg';
 
 import Contributors from './contributors.jsx';
+import LastModifiedBy from './last-modified-by.jsx';
+import sectionAnchor from './section-anchor.jsx';
 
 import type { DocumentData } from './document.jsx';
 type DocumentProps = {
@@ -172,20 +173,11 @@ function ArticleMetadata({ document }: DocumentProps) {
                 contributors={document.contributors}
                 profileBaseURL={profileBaseURL}
             />
-            <div>
-                <ClockIcon
-                    css={styles.metadataIcon}
-                    className="icon icon-clock"
-                />{' '}
-                <strong>{gettext('Last updated by:')}</strong>{' '}
-                {document.lastModifiedBy}{' '}
-                <time dateTime={document.lastModified}>
-                    {new Date(document.lastModified)
-                        .toISOString()
-                        .slice(0, -5)
-                        .replace('T', ' ')}
-                </time>
-            </div>
+            <LastModifiedBy
+                lastModifiedBy={document.lastModifiedBy}
+                lastModified={document.lastModified}
+                profileBaseURL={profileBaseURL}
+            />
         </div>
     );
 }
