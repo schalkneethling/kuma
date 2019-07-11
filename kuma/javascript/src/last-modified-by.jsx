@@ -25,12 +25,7 @@ export default function LastModifiedBy({
             <a href={`${profileBaseURL}${lastModifiedBy}`} rel="nofollow">
                 {`${lastModifiedBy}, `}
             </a>
-            <time dateTime={lastModified}>
-                {new Date(lastModified)
-                    .toISOString()
-                    .slice(0, -5)
-                    .replace('T', ' ')}
-            </time>
+            <time dateTime={lastModified}>{lastModified}</time>
         </section>
     );
 }
