@@ -1,16 +1,16 @@
 // @flow
 import * as React from 'react';
 
-import { gettext } from '../l10n.js';
+import { gettext } from './l10n.js';
 
-import ContributorsIcon from '../icons/contributors.svg';
+import ContributorsIcon from './icons/contributors.svg';
 
 type Props = {
-    contributors: Array
+    contributors: Array,
+    profileBaseURL: String
 };
 
 export default function Contributors(props: Props) {
-    const profileBaseURL = 'https://wiki.developer.mozilla.org/profiles/';
     return (
         <section className="contributors-sub">
             <ContributorsIcon />
@@ -27,7 +27,7 @@ export default function Contributors(props: Props) {
                     <li key={contributor}>
                         {index > 0 && ', '}
                         <a
-                            href={`${profileBaseURL}${contributor}`}
+                            href={`${props.profileBaseURL}${contributor}`}
                             rel="nofollow"
                         >
                             {contributor}

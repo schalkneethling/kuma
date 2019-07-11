@@ -11,7 +11,7 @@ import { highlightSyntax } from './prism.js';
 import * as InteractiveExamples from './interactive-examples.js';
 import TagsIcon from './icons/tags.svg';
 
-import Contributors from './document/contributors.jsx';
+import Contributors from './contributors.jsx';
 
 import type { DocumentData } from './document.jsx';
 type DocumentProps = {
@@ -151,6 +151,9 @@ export default function Article({ document }: DocumentProps) {
 }
 
 function ArticleMetadata({ document }: DocumentProps) {
+    const url = new URL(document.editURL);
+    const profileBaseURL = `${url.protocol}//${url.host}/profiles/`;
+
     return (
         <div css={styles.metadata}>
             <div>
@@ -165,7 +168,10 @@ function ArticleMetadata({ document }: DocumentProps) {
                     ))}
                 </ul>
             </div>
-            <Contributors contributors={document.contributors} />
+            <Contributors
+                contributors={document.contributors}
+                profileBaseURL={profileBaseURL}
+            />
             <div>
                 <ClockIcon
                     css={styles.metadataIcon}
