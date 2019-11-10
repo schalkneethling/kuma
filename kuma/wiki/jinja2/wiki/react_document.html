@@ -94,8 +94,20 @@
   {{ render_react("SPA", request.LANGUAGE_CODE, request.get_full_path(),
                   document_data)|safe }}
 
+  {% block auth_modal %}
+    {% include "includes/auth-modal.html" %}
+  {% endblock %}
+
   <!-- site js -->
   {% javascript 'react-main' %}
+<<<<<<< HEAD
+=======
+  {% javascript 'auth-modal' %}
+  <script>
+    if (window.mdn && mdn.analytics) mdn.analytics.trackOutboundLinks();
+  </script>
+
+>>>>>>> 57078a176... Fixes #6024, add multi auth sign-in ui
   {% if waffle.flag('bc-signals') %}
     {% javascript "bcd-signal" %}
   {% endif %}

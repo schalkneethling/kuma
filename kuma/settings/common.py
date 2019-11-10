@@ -836,6 +836,12 @@ PIPELINE_CSS = {
         ),
         'output_filename': 'build/styles/signup-flow.css',
     },
+    'auth-modal': {
+        'source_filenames': (
+            'styles/minimalist/components/auth-modal.scss',
+        ),
+        'output_filename': 'build/styles/auth-modal.css',
+    },
     'user-banned': {
         'source_filenames': (
             'styles/user-banned.scss',
@@ -1003,6 +1009,16 @@ PIPELINE_JS = {
             'js/components/user-signup/signup.js',
         ),
         'output_filename': 'build/js/signup.js',
+        'extra_context': {
+            'async': True,
+        },
+    },
+    'auth-modal': {
+        'source_filenames': (
+            'js/components/modal.js',
+            'js/components/user-signup/auth-modal.js',
+        ),
+        'output_filename': 'build/js/auth-modal.js',
         'extra_context': {
             'async': True,
         },

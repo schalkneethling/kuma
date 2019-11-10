@@ -64,7 +64,7 @@ export default function Login(): React.Node {
         // Otherwise, show a login prompt
         return (
             <a
-                href={`/users/github/login/?next=${LOCATION}`}
+                href={`/users/account/signup-landing?next=${LOCATION}`}
                 data-service="GitHub"
                 rel="nofollow"
                 className="signin-link"
