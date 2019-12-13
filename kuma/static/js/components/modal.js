@@ -12,13 +12,15 @@
     var modalDialog = {
         /**
          * Returns `false` if either of the following conditions are true else, returns `true`:
-         * 1. The modal we expect is not present
-         * 2. We are on a mobile phone
+         * 1. Multi auth is not turned on
+         * 2. The modal we expect is not present
+         * 3. We are on a mobile phone
          * @param {Object} modal - The modal as an `HTMLElement`
          * @returns {Boolean}
          */
-        showModal: function(modal) {
+        showModal: function (modal) {
             if (
+                !window.mdn.multiAuthEnabled ||
                 !modal ||
                 (window.matchMedia &&
                     window.matchMedia('(max-width:47.9385em)').matches)

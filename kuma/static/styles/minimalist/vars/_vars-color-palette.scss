@@ -14,9 +14,6 @@ $light-thin-border: 1px solid #dce3e5;
 $warning-border-color: #ffc543;
 $warning-background-color: scale-color($warning-border-color, $lightness: 50%);
 
-<<<<<<< HEAD
 $featured-banner-hover-shadow: 2px 2px 5px
     scale-color($brand-primary, $lightness: 70%);
-=======
 $button-box-shadow: 5px 5px 5px $light-blue-grey;
->>>>>>> 57078a176... Fixes #6024, add multi auth sign-in ui

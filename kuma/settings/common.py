@@ -1838,6 +1838,9 @@ NEWSLETTER_ARTICLE = True
 # Newsletter Signup Settings
 ENABLE_NEWSLETTER_SIGNUP = config('ENABLE_NEWSLETTER_SIGNUP', default=False, cast=bool)
 
+# Multi Auth Switch
+MULTI_AUTH_ENABLED = config('MULTI_AUTH_ENABLED', default=False, cast=bool)
+
 # Content Experiments
 # Must be kept up to date with PIPELINE_JS setting and the JS client-side
 #  configuration. The 'id' should be a key in PIPELINE_JS, that loads

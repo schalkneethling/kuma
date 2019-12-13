@@ -100,14 +100,8 @@
 
   <!-- site js -->
   {% javascript 'react-main' %}
-<<<<<<< HEAD
-=======
   {% javascript 'auth-modal' %}
-  <script>
-    if (window.mdn && mdn.analytics) mdn.analytics.trackOutboundLinks();
-  </script>
 
->>>>>>> 57078a176... Fixes #6024, add multi auth sign-in ui
   {% if waffle.flag('bc-signals') %}
     {% javascript "bcd-signal" %}
   {% endif %}
