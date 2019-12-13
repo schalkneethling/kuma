@@ -70,7 +70,7 @@
             editorUrl: "{{ settings.INTERACTIVE_EXAMPLES_BASE }}"
         };
         win.mdn.langCookieName = "{{ settings.LANGUAGE_COOKIE_NAME }}";
-        win.mdn.multiAuthEnabled = "{{ settings.MULTI_AUTH_ENABLED }}";
+        win.mdn.multiAuthEnabled = {{ 'true' if settings.MULTI_AUTH_ENABLED else 'false' }};
 
     })(this);
 </script>
