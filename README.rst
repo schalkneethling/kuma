@@ -2,6 +2,8 @@
 Kuma
 ====
 
+Testing `gg`
+
 .. image:: https://travis-ci.com/mdn/kuma.svg?branch=master
    :target: https://travis-ci.com/mdn/kuma
    :alt: Build Status
