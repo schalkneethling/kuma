@@ -651,6 +651,10 @@ def pipeline_one_scss(slug, **kwargs):
 
 
 PIPELINE_CSS = {
+    "mdn-minimalist": {
+        "source_filenames": ("mdn-minimalist/sass/mdn-minimalist.scss",),
+        "output_filename": "build/mdn-minimalist/mdn-minimalist.css",
+    },
     # Combines the mdn, wiki and wiki-compat-tables styles into
     # one bundle for use by pages that are part of the new
     # single page app.

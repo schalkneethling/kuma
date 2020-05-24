@@ -13,7 +13,8 @@
         "url": "https://github.com/mdn/kuma/issues"
     },
     "scripts": {
-        "copy:style": "node  webpack-build-utils/terminal.js 'cp -R ./kuma/static/styles/ ./static/styles'",
+        "copy:style": "node webpack-build-utils/terminal.js 'cp -R ./kuma/static/styles/ ./static/styles'",
+        "copy:minimalist": "cp -R ./node_modules/mdn-minimalist ./kuma/static/mdn-minimalist",
         "webpack": "webpack",
         "debug": "node --inspect --inspect-brk ./node_modules/webpack/bin/webpack.js",
         "debug:development:web": "yarn run debug --env.presets web --env.presets svg --env.mode development",
@@ -35,7 +36,8 @@
         "optim:svg": "svgo jinja2/includes/icons/* --disable={removeViewBox,removeTitle} --multipass --pretty",
         "precommit": "yarn run eslint && yarn run stylelint && yarn run pretty-staged",
         "process:sass": "node-sass-chokidar ./kuma/static/styles/ -o ./static/styles -w",
-        "start": "run-p process:sass webpack:dev",
+        "process:sass:minimalist": "node-sass-chokidar ./kuma/static/mdn-minimalist/ -o ./static/mdn-minimalist -w",
+        "start": "run-p process:sass process:sass:minimalist webpack:dev",
         "test": "jest --testPathIgnorePatterns tests/sass",
         "test-ci": "JEST_JUNIT_OUTPUT_DIR='./test_results' JEST_JUNIT_OUTPUT_NAME='jest.xml' jest --ci --reporters=default --reporters=jest-junit --testPathIgnorePatterns tests/sass",
         "format": "prettier --write **/*{.js,.jsx,.scss}",
@@ -81,6 +83,7 @@
         "husky": "0.14.3",
         "jest": "^25.2.3",
         "jest-junit": "^10.0.0",
+        "mdn-minimalist": "^0.1.10",
         "node-sass": "^4.14.1",
         "node-sass-chokidar": "^1.4.0",
         "npm-run-all": "4.1.5",
