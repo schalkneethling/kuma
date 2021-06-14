@@ -11,7 +11,7 @@ documentation = "https://kuma.readthedocs.io"
 [tool.poetry.dependencies]
 python = "^3.8"
 
-babel = "^2.8.0"
+babel = "^2.9.1"
 boto3 = "^1.10.37"
 botocore = "^1.14.17"
 celery = "^4.3.0"
