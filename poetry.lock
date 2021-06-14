@@ -366,14 +366,14 @@ jinja2 = ">=2.10"
 
 [[package]]
 name = "django-mysql"
-version = "3.3.0"
+version = "3.12.0"
 description = "Django-MySQL extends Django's built-in MySQL and MariaDB support their specific features not available on other databases."
 category = "main"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.6"
 
 [package.dependencies]
-Django = ">=1.11"
+Django = ">=2.2"
 
 [[package]]
 name = "django-pipeline"
@@ -1388,7 +1388,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "07ea52cfde5798e547bb44b5538f265d25827f1f247237b0ce867b130a2cc95d"
+content-hash = "348768dcff1493971f8665ff6a3f0e5c76da1412b0b90b8eeb441ad8c26d6e14"
 
 [metadata.files]
 amqp = [
@@ -1586,8 +1586,8 @@ django-jinja = [
     {file = "django_jinja-2.7.0-py3-none-any.whl", hash = "sha256:ce4640e4bc329d9e938c3a7673dafc66dfcc921e4667cfd1002f0089e2599103"},
 ]
 django-mysql = [
-    {file = "django-mysql-3.3.0.tar.gz", hash = "sha256:b984dfe75bedeb01bfcb974fe8400c224a6b55677b98a799f1c96274d96c5a72"},
-    {file = "django_mysql-3.3.0-py3-none-any.whl", hash = "sha256:ceaf6d93396b7f7b3798ac5f9a819dd70d5f0e1112850f2a34c57f062fa19398"},
+    {file = "django-mysql-3.12.0.tar.gz", hash = "sha256:2747964a1eeba38f98035c442ac5d32ebb602c460697f2da111c0f6d30245c69"},
+    {file = "django_mysql-3.12.0-py3-none-any.whl", hash = "sha256:a4ff093b3f45832f95224da164e04b99e844a2047bff423036bcd2422988ebe4"},
 ]
 django-pipeline = [
     {file = "django-pipeline-1.7.0.tar.gz", hash = "sha256:0ded22b974e3d627c27fc490ef5b23fcdcf0cdb00b704d628b5ca6d0b010d6fe"},
